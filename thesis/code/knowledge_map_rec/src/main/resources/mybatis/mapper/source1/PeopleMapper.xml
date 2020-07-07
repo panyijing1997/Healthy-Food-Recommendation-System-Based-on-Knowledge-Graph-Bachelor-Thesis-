@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pan.kmr.mapper.source1.PeopleMapper">
+<!--以下为插入操作-->
+    <insert id="addLack" >
+        insert into user_lack(uid,lack) values(#{uid},#{oneLack})
+    </insert>
+
+    <insert id="addSymptom" >
+        insert into user_symptom(uid,symptom) values(#{uid},#{oneSymptom})
+    </insert>
+
+    <insert id="addPreference" >
+        insert into user_preference(uid,preference) values(#{uid},#{onePreference})
+    </insert>
+
+    <insert id="addType" >
+        insert into user_type(uid,type,age) values(#{uid},#{type},#{age})
+    </insert>
+
+    <!--以下为删除操作-->
+    <delete id="deleteAllSymptomByUid">
+        delete from user_symptom where uid=#{uid}
+    </delete>
+
+    <delete id="deleteAllPreferenceByUid">
+        delete from user_preference where uid=#{uid}
+    </delete>
+
+    <delete id="deleteAllLackByUid">
+        delete from user_lack where uid=#{uid}
+    </delete>
+    <!--更新-->
+    <update id="updateTypeByUid">
+        update user_type set type=#{type}, age=#{age} where uid=#{uid}
+    </update>
+
+
+    <!--以下为查询操作,mybatis不支持返回多个结果集，因此用户的信息只能分开返回-->
+    <select id="querySymptomByUid" resultType="java.lang.String">
+        select symptom from user_symptom where uid=#{uid}
+    </select>
+    <select id="queryPreferenceByUid" resultType="java.lang.String">
+        select preference from user_preference where uid=#{uid}
+    </select>
+    <select id="queryLackByUid" resultType="java.lang.String">
+        select lack from user_lack where uid=#{uid}
+    </select>
+    <select id="queryTypeByUid" resultType="java.lang.String">
+        select type from user_type where uid=#{uid}
+    </select>
+    <select id="queryAgeByUid" resultType="int">
+        select age from user_type where uid=#{uid}
+    </select>
+</mapper>

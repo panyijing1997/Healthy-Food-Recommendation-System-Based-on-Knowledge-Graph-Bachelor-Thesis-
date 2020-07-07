@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="Bootstrap, Landing page, Template, Registration, Landing">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>食物搜索</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{css/line-icons.css}">
+    <link rel="stylesheet" th:href="@{css/owl.carousel.css}">
+    <link rel="stylesheet" th:href="@{css/owl.theme.css}">
+    <link rel="stylesheet" th:href="@{css/nivo-lightbox.css}">
+    <link rel="stylesheet" th:href="@{css/magnific-popup.css}">
+    <link rel="stylesheet" th:href="@{css/animate.css}">
+    <link rel="stylesheet" th:href="@{css/color-switcher.css}">
+    <link rel="stylesheet" th:href="@{css/menu_sideslide.css}">
+    <link rel="stylesheet" th:href="@{css/main.css}">
+    <link rel="stylesheet" th:href="@{css/responsive.css}">
+    <link rel="stylesheet" th:href="@{css/check.css}">
+    <style>
+        img{
+            height: 290px;
+        }
+        #ha{
+            align-self: center;
+            text-align:center;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 60px;
+        }
+        .single-team{
+            background: #FAEBD7;
+        }
+        #foods{
+            border-top: 0px;
+            padding-top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+<!-- Header Section Start -->
+<header id="slider-area">
+    <div th:insert="~{/common/common::topbar}"></div>
+
+    <div th:insert="~{/common/common::pop}"></div>
+</header>
+<!-- Header Section End -->
+<section id="search" class="section">
+    <div class="container">
+        <div id="search-box">
+            <form id="search form col-12" method="post" th:action="@{/search}">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="fname" name="fname" placeholder="输入食物名称" required>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="submit-button">
+                            <button class="btn btn-common btn-effect"  type="submit">
+                                <div class="icon-o d-inline" ><i class="lni-search"></i></div>
+                                <span>&nbsp; 搜索</span>
+                            </button>
+                            <div id="searach-submite" class="h3 hidden"></div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="section-header">
+                <span>Healthy Foods</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="foods" class="section" th:if="${not #strings.isEmpty(foodName)}">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-subtitle">“[[${foodName}]]”的搜索结果</p>
+        </div>
+        <div class="row">
+            <p th:if="${#lists.isEmpty(foods)}" >暂无结果，请更换关键字重新搜索</p>
+           <div th:if="${not #lists.isEmpty(foods)}" class="col-lg-3 col-md-4 col-sm-6" style="float:left" th:each="food:${foods}">
+               <a th:href="@{/food/}+${food.getImg()}">
+                   <div class="single-team">
+                       <img th:src="@{/img/foods/}+${food.getImg()+'.png'}" alt="">
+                       <div class="team-details">
+                           <div class="team-inner">
+                               <h4 class="team-title" th:text="${food.getFname()}"></h4>
+                           </div>
+                       </div>
+                   </div>
+               </a>
+           </div>
+       </p>
+   </div>
+</section>
+<div id="loader">
+   <div class="spinner">
+       <div class="double-bounce1"></div>
+       <div class="double-bounce2"></div>
+   </div>
+</div>
+<!-- Go To Top Link -->
+<a href="#" class="back-to-top">
+    <i class="lni-arrow-up"></i>
+</a>
+
+
+<script th:src="@{js/jquery-min.js}"></script>
+<script th:src="@{js/popper.min.js}"></script>
+<script th:src="@{js/bootstrap.min.js}"></script>
+<script th:src="@{js/classie.js}"></script>
+<script th:src="@{js/jquery.mixitup.js}"></script>
+<script th:src="@{js/nivo-lightbox.js}"></script>
+<script th:src="@{js/owl.carousel.js}"></script>
+<script th:src="@{js/jquery.stellar.min.js}"></script>
+<script th:src="@{js/jquery.nav.js}"></script>
+<script th:src="@{js/scrolling-nav.js}"></script>
+<script th:src="@{js/jquery.easing.min.js}"></script>
+<script th:src="@{js/wow.js}"></script>
+<script th:src="@{js/jquery.vide.js}"></script>
+<script th:src="@{js/jquery.counterup.min.js}"></script>
+<script th:src="@{js/jquery.magnific-popup.min.js}"></script>
+<script th:src="@{js/waypoints.min.js}"></script>
+<script th:src="@{js/form-validator.min.js}"></script>
+<script th:src="@{js/contact-form-script.js}"></script>
+<script th:src="@{js/main.js}"></script>
+
+</body>
+</html>

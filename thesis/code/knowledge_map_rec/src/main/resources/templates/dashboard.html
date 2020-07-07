@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="Bootstrap, Landing page, Template, Registration, Landing">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>主页</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/line-icons.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.theme.css}">
+    <link rel="stylesheet" th:href="@{/css/nivo-lightbox.css}">
+    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" th:href="@{/css/color-switcher.css}">
+    <link rel="stylesheet" th:href="@{/css/menu_sideslide.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/responsive.css}">
+    <link rel="stylesheet" th:href="@{/css/check.css}">
+    <style>
+
+
+    </style>
+</head>
+<body>
+<!-- Header Section Start -->
+<header id="slider-area">
+    <div th:insert="~{/common/common::topbar}"></div>
+    <div th:insert="~{/common/common::imgs}"></div>
+    <div th:insert="~{/common/common::pop}"></div>
+</header>
+<!-- Header Section End -->
+
+<!-- Services Section Start -->
+<section id="services" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">您好[[${session.loginUser}]]，请问您需要什么</h2>
+            <span>Healthy Foods</span>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <a th:href="@{/myInformation}">
+                    <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.2s">
+                        <div class="icon color-1">
+                            <i class="lni-pencil"></i>
+                        </div>
+                        <h4>个人信息</h4>
+                        <p>查看和修改您的健康信息和口味偏好</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <a th:href="@{/search}">
+                    <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.4s">
+                        <div class="icon color-2">
+                            <i class="lni-search"></i>
+                        </div>
+                        <h4>查找食物</h4>
+                        <p>查找和搜索您喜爱的食物</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <a th:href="@{/peopleType}">
+                    <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.6s">
+                        <div class="icon color-3">
+                            <i class="lni-users"></i>
+                        </div>
+                        <h4>人群膳食</h4>
+                        <p>查看特定人群相关推荐饮食</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <a th:href="@{/symptom}">
+                    <div class="item-boxes services-item wow fadeInDown" data-wow-delay="0.8s">
+                        <div class="icon color-4">
+                            <i class="lni-leaf"></i>
+                        </div>
+                        <h4>病症调理</h4>
+                        <p>对症饮食，更有益于健康</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <a th:href="@{/nutrient}">
+                    <div class="item-boxes services-item wow fadeInDown" data-wow-delay="1s">
+                        <div class="icon color-5">
+                            <i class="lni-apple"></i>
+                        </div>
+                        <h4>专注营养</h4>
+                        <p>寻找富含特定营养元素的食物</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-6 col-xs-12">
+                <a th:href="@{/personalRecommend}">
+                    <div class="item-boxes services-item wow fadeInDown" data-wow-delay="1.2s">
+                        <div class="icon color-6">
+                            <i class="lni-heart"></i>
+                        </div>
+                        <h4>个性推荐</h4>
+                        <p>根据您的健康信息和偏好一键生成推荐</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div id="loader">
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+</div>
+
+<script th:src="@{/js/jquery-min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/classie.js}"></script>
+<script th:src="@{/js/jquery.mixitup.js}"></script>
+<script th:src="@{/js/nivo-lightbox.js}"></script>
+<script th:src="@{/js/owl.carousel.js}"></script>
+<script th:src="@{/js/jquery.stellar.min.js}"></script>
+<script th:src="@{/js/jquery.nav.js}"></script>
+<script th:src="@{/js/scrolling-nav.js}"></script>
+<script th:src="@{/js/jquery.easing.min.js}"></script>
+<script th:src="@{/js/wow.js}"></script>
+<script th:src="@{/js/jquery.vide.js}"></script>
+<script th:src="@{/js/jquery.counterup.min.js}"></script>
+<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+<script th:src="@{/js/waypoints.min.js}"></script>
+<script th:src="@{/js/form-validator.min.js}"></script>
+<script th:src="@{/js/contact-form-script.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+
+</body>
+</html>

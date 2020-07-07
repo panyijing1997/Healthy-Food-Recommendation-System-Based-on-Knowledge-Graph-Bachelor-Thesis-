@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pan.kmr.mapper.source1.AccountMapper">
+    <resultMap id="accountMap" type="pan.kmr.bean.Account">
+    </resultMap>
+    <select id="queryAccount" resultMap="accountMap">
+        select * from account where username=#{username} and password=#{password}
+    </select>
+    <select id="queryCommentByUidAndImg" resultType="java.lang.Integer">
+        select comment from user_comment where uid=#{uid} and img=#{img}
+    </select>
+    <select id="queryLikedFoodByUid" resultType="java.lang.String">
+        select img from user_comment where uid=#{uid} and comment=2
+    </select>
+    <select id="queryUnlikedFoodByUid" resultType="java.lang.String">
+        select img from user_comment where uid=#{uid} and comment=1
+    </select>
+    <select id="queryAccountByUsername" resultMap="accountMap">
+        select * from account where username=#{username}
+    </select>
+    <insert id="addAccount" >
+        insert into account(username,password) values(#{username},#{password})
+    </insert>
+    <insert id="addComment">
+        insert into user_comment(uid,comment,img) values(#{uid},#{comment},#{img})
+    </insert>
+    <update id="updateComment">
+        update user_comment set comment=#{comment} where uid=#{uid} and img=#{img}
+    </update>
+</mapper>

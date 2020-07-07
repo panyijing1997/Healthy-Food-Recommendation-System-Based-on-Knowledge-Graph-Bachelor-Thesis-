@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>症状：</p>
+<p th:each="s:${symptoms}" th:text="${s}"></p>
+<p>人群：</p>
+<p  th:text="${peopleType}"></p>
+
+</body>
+</html>

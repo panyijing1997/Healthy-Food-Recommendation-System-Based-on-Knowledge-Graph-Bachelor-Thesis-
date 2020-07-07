@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pan.kmr.mapper.source1.FoodInformationMapper">
+    <select id="queryAllFoodInformation" resultType="pan.kmr.bean.FoodInformation">
+        select * from food_information
+    </select>
+
+    <select id="queryFoodByFname" resultType="pan.kmr.bean.FoodInformation">
+        select * from food_information where fname=#{fname}
+    </select>
+
+    <select id="queryFoodByImg" resultType="pan.kmr.bean.FoodInformation">
+        select * from food_information where img=#{img}
+    </select>
+
+    <select id="queryFoodByFnameLike" resultType="pan.kmr.bean.FoodInformation">
+        select * from food_information where fname like concat('%', #{fname},'%')
+    </select>
+</mapper>

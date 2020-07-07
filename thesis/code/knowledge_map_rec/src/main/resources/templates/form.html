@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="Bootstrap, Landing page, Template, Registration, Landing">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>信息填写</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/line-icons.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.theme.css}">
+    <link rel="stylesheet" th:href="@{/css/nivo-lightbox.css}">
+    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" th:href="@{/css/color-switcher.css}">
+    <link rel="stylesheet" th:href="@{/css/menu_sideslide.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/responsive.css}">
+    <link rel="stylesheet" th:href="@{/css/check2.css}">
+    <style>
+        .pp{
+            font-size: 15px;
+            font-weight: bold;
+            line-height: 60px;
+
+        }
+    </style>
+</head>
+<body>
+<header id="slider-area">
+    <div th:insert="~{/common/common::topbar}"></div>
+
+    <div th:insert="~{/common/common::pop}"></div>
+</header>
+
+<section id="info-form" class="section">
+    <div class="contact-form">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">您好，[[${session.loginUser}]]！请填写您的信息</h2>
+                <p class="section-subtitle">请尽量填写下列相关信息，以获得更好的推荐结果</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-9 col-md-9  m-auto">
+                    <div class="contact-block">
+                        <form id="infoForm" th:action="@{/postForm}" method="post">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <p class="pp">年龄：</p>
+                                        <input type="number" placeholder="您的年龄" id="age" class="form-control" name="age" th:value="${oldAge}" required data-error="请输入年龄">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <p class="pp" >您是否具有下列已知病症？ </p><!--lable模拟了框-->
+                                            <label> <input id="s1" type="checkbox" name="symptom" value="高血压">&nbsp;高血压  &nbsp;&nbsp;</label>
+                                            <label> <input id="s10" type="checkbox" name="symptom" value="高血脂">&nbsp;高血脂  &nbsp;&nbsp;</label>
+                                            <label><input id="s2" type="checkbox" name="symptom" value="贫血">&nbsp;贫血 &nbsp; &nbsp;</label>
+                                            <label><input id="s3" type="checkbox" name="symptom" value="肥胖">&nbsp;肥胖  &nbsp;&nbsp;</label>
+                                            <label><input id="s4" type="checkbox" name="symptom" value="糖尿病">&nbsp;糖尿病 &nbsp; &nbsp;</label>
+                                            <label><input id="s5" type="checkbox" name="symptom" value="消化不良">&nbsp;消化不良 &nbsp; &nbsp;</label>
+                                            <label><input id="s6" type="checkbox" name="symptom" value="营养不良">&nbsp;营养不良 &nbsp; &nbsp;</label>
+                                            <label><input id="s7" type="checkbox" name="symptom" value="胃寒">&nbsp;胃寒 &nbsp; &nbsp;</label>
+                                            <label><input id="s8" type="checkbox" name="symptom" value="上火">&nbsp;上火 &nbsp; &nbsp;</label>
+                                            <label><input id="s9" type="checkbox" name="symptom" value="神经性皮炎">&nbsp;神经性皮炎 &nbsp; &nbsp;</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <p class="pp" >您属于以下哪类特殊人群？ </p><!--lable模拟了框-->
+                                            <label><input id="g5" type="radio" name="peopleType" value="幼儿">&nbsp;幼儿 &nbsp; &nbsp;</label>
+                                            <label><input id="g4" type="radio" name="peopleType" value="儿童">&nbsp;儿童 &nbsp; &nbsp;</label>
+                                            <label><input id="g1" type="radio" name="peopleType" value="青少年">&nbsp;青少年  &nbsp;&nbsp;</label>
+                                            <label><input id="g2" type="radio" name="peopleType" value="中年人">&nbsp;中年人 &nbsp; &nbsp;</label>
+                                            <label><input id="g6" type="radio" name="peopleType" value="老年人">&nbsp;老年人 &nbsp; &nbsp;</label>
+                                            <label><input id="g7" type="radio" name="peopleType" value="孕妇">&nbsp;孕妇  &nbsp;&nbsp;</label>
+                                            <label><input id="g3" type="radio" name="peopleType" value="产妇">&nbsp;产妇  &nbsp;&nbsp;</label>
+                                            <label><input id="g8" type="radio" name="peopleType" value="哺乳期">&nbsp;哺乳期  &nbsp;&nbsp;</label>
+                                            <label><input id="g10" type="radio" name="peopleType" value="一般人群">一般人群  &nbsp;&nbsp;</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <p class="pp" >您是否已知自己缺乏以下营养元素？ </p><!--lable模拟了框-->
+                                            <label><input id="n1" type="checkbox" name="lack" value="蛋白质">&nbsp;蛋白质  &nbsp;&nbsp;</label>
+                                            <label><input id="n2" type="checkbox" name="lack" value="膳食纤维">&nbsp;膳食纤维 &nbsp; &nbsp;</label>
+                                            <label><input id="n3" type="checkbox" name="lack" value="维生素A">&nbsp;维生素A  &nbsp;&nbsp;</label>
+                                            <label><input id="n4" type="checkbox" name="lack" value="维生素B1">&nbsp;维生素B1  &nbsp;&nbsp;</label>
+                                            <label><input id="n5" type="checkbox" name="lack" value="维生素B2">&nbsp;维生素B2  &nbsp;&nbsp;</label>
+                                            <label><input id="n6" type="checkbox" name="lack" value="维生素C">&nbsp;维生素C &nbsp; &nbsp;</label>
+                                            <label><input id="n10" type="checkbox" name="lack" value="维生素C">&nbsp;维生素E &nbsp; &nbsp;</label>
+                                            <label><input id="n7" type="checkbox" name="lack" value="钙">&nbsp;钙 &nbsp; &nbsp;</label>
+                                            <label><input id="n8" type="checkbox" name="lack" value="铁">&nbsp;铁 &nbsp; &nbsp;</label>
+                                            <label><input id="n9" type="checkbox" name="lack" value="脂肪">&nbsp;脂肪 &nbsp; &nbsp;</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <p class="pp" >您的口味偏好 </p><!--lable模拟了框-->
+                                            <label><input id="p1" type="checkbox" name="preference" value="酸">&nbsp;酸  &nbsp;&nbsp;</label>
+                                            <label><input id="p2" type="checkbox" name="preference" value="甜">&nbsp;甜 &nbsp; &nbsp;</label>
+                                            <label><input id="p3" type="checkbox" name="preference" value="软">&nbsp;软  &nbsp;&nbsp;</label>
+                                            <label><input id="p4" type="checkbox" name="preference" value="硬">&nbsp;硬 &nbsp; &nbsp;</label>
+                                            <label><input id="p5" type="checkbox" name="preference" value="辛辣">&nbsp;辛辣  &nbsp;&nbsp;</label>
+                                            <label><input id="p6" type="checkbox" name="preference" value="咸">&nbsp;咸  &nbsp;&nbsp;</label>
+                                            <label><input id="p7" type="checkbox" name="preference" value="脆">&nbsp;脆  &nbsp;&nbsp;</label>
+                                            <label><input id="p8" type="checkbox" name="preference" value="清淡">&nbsp;清淡  &nbsp;&nbsp;</label>
+                                            <label><input id="p9" type="checkbox" name="preference" value="浓郁鲜香">&nbsp;鲜香  &nbsp;&nbsp;</label>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="submit-button">
+                                        <button class="btn btn-common btn-effect" id="submit" type="submit">确认</button>
+                                        <div id="msgSubmit" class="h3 hidden"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div id="loader">
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+</div>
+
+<script th:src="@{/js/jquery-min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/classie.js}"></script>
+<script th:src="@{/js/jquery.mixitup.js}"></script>
+<script th:src="@{/js/nivo-lightbox.js}"></script>
+<script th:src="@{/js/owl.carousel.js}"></script>
+<script th:src="@{/js/jquery.stellar.min.js}"></script>
+<script th:src="@{/js/jquery.nav.js}"></script>
+<script th:src="@{/js/scrolling-nav.js}"></script>
+<script th:src="@{/js/jquery.easing.min.js}"></script>
+<script th:src="@{/js/wow.js}"></script>
+<script th:src="@{/js/jquery.vide.js}"></script>
+<script th:src="@{/js/jquery.counterup.min.js}"></script>
+<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+<script th:src="@{/js/waypoints.min.js}"></script>
+<script th:src="@{/js/form-validator.min.js}"></script>
+<script th:src="@{/js/contact-form-script.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>

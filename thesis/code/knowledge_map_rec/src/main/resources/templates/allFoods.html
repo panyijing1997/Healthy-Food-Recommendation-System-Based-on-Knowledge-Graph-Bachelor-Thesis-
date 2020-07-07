@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="Bootstrap, Landing page, Template, Registration, Landing">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>营养膳食</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/line-icons.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.theme.css}">
+    <link rel="stylesheet" th:href="@{/css/nivo-lightbox.css}">
+    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" th:href="@{/css/color-switcher.css}">
+    <link rel="stylesheet" th:href="@{/css/menu_sideslide.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/responsive.css}">
+    <link rel="stylesheet" th:href="@{/css/check.css}">
+    <style>
+        img{
+            height: 290px;
+        }
+        #ha{
+            align-self: center;
+            text-align:center;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 60px;
+        }
+        .single-team{
+            background: #FAEBD7;
+        }
+        #foods{
+            border-top: 0px;
+            padding-top: 0px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+<!-- Header Section Start -->
+<header id="slider-area">
+    <div th:insert="~{/common/common::topbar}"></div>
+
+    <div th:insert="~{/common/common::pop}"></div>
+</header>
+<!-- Header Section End -->
+
+<section id="foods" class="section">
+    <div class="container">
+        <div class="section-header">
+
+            <span>Foods</span>
+        </div>
+        <div class="row">
+            <!--此处循环显示食物内容-->
+            <div th:if="${not #lists.isEmpty(foods)}" class="col-lg-3 col-md-4 col-sm-6" style="float:left" th:each="food:${foods}">
+               <a th:href="@{/food/}+${food.getImg()}">
+                   <div class="single-team">
+                    <img th:src="@{img/foods/}+${food.getImg()+'.png'}" alt="">
+                    <div class="team-details">
+                        <div class="team-inner">
+                            <h4 class="team-title" th:text="${food.getFname()}"></h4>
+                        </div>
+                    </div>
+                </div>
+               </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div id="loader">
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+</div>
+<!-- Go To Top Link -->
+<a href="#" class="back-to-top">
+    <i class="lni-arrow-up"></i>
+</a>
+
+
+
+<script th:src="@{/js/jquery-min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/classie.js}"></script>
+<script th:src="@{/js/jquery.mixitup.js}"></script>
+<script th:src="@{/js/nivo-lightbox.js}"></script>
+<script th:src="@{/js/owl.carousel.js}"></script>
+<script th:src="@{/js/jquery.stellar.min.js}"></script>
+<script th:src="@{/js/jquery.nav.js}"></script>
+<script th:src="@{/js/scrolling-nav.js}"></script>
+<script th:src="@{/js/jquery.easing.min.js}"></script>
+<script th:src="@{/js/wow.js}"></script>
+<script th:src="@{/js/jquery.vide.js}"></script>
+<script th:src="@{/js/jquery.counterup.min.js}"></script>
+<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+<script th:src="@{/js/waypoints.min.js}"></script>
+<script th:src="@{/js/form-validator.min.js}"></script>
+<script th:src="@{/js/contact-form-script.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+
+</body>
+</html>

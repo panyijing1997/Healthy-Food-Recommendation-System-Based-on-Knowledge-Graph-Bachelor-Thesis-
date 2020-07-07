@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pan.kmr.mapper.source2.SymptomMapper">
+    <select id="queryPositiveNutrientBySymptom" resultType="java.lang.String" >
+       MATCH (a:Symptom)-[r:POSITIVE]->(b:Nutrient) where a.name=#{symptom} RETURN b.name
+    </select>
+
+</mapper>

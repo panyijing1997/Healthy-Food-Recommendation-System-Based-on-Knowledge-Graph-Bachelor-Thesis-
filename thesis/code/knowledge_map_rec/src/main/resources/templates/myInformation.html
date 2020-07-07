@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="Bootstrap, Landing page, Template, Registration, Landing">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>我的信息</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{css/line-icons.css}">
+    <link rel="stylesheet" th:href="@{css/owl.carousel.css}">
+    <link rel="stylesheet" th:href="@{css/owl.theme.css}">
+    <link rel="stylesheet" th:href="@{css/nivo-lightbox.css}">
+    <link rel="stylesheet" th:href="@{css/magnific-popup.css}">
+    <link rel="stylesheet" th:href="@{css/animate.css}">
+    <link rel="stylesheet" th:href="@{css/color-switcher.css}">
+    <link rel="stylesheet" th:href="@{css/menu_sideslide.css}">
+    <link rel="stylesheet" th:href="@{css/main.css}">
+    <link rel="stylesheet" th:href="@{css/responsive.css}">
+    <style>
+
+        html, body {height:100%;overflow:auto;margin: 0;}
+        html{overflow-y:scroll;}
+        img{
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body >
+<header id="slider-area">
+    <div th:insert="~{/common/common::topbar}"></div>
+
+    <div th:insert="~{/common/common::pop}"></div>
+</header>
+<section id="features" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">我的信息</h2>
+            <span>My Information</span>
+        </div>
+        <div class="row m-auto">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="col-5 m-auto">
+                <a th:href="@{/form}">
+                    <button class="btn btn-common btn-effect float-left ">
+                        <div class="icon-o d-inline" ><i class="lni-pencil"></i></div>
+                        <span> &nbsp;修改信息</span>
+                    </button>
+                </a>
+                <a th:href="@{/main}">
+                    <button class="btn btn-common btn-effect float-right">
+                        <div class="icon-o d-inline" ><i class="lni-home"></i></div>
+                        <span> &nbsp; 返回主页</span>
+                    </button>
+                </a>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="col-8 m-auto">
+                <div class="featured-box">
+                    <div class="featured-icon">
+                        <i class="lni-calendar"></i>
+                    </div>
+                    <div class="featured-content">
+                        <div class="icon-o"><i class="lni-calendar"></i></div>
+                        <h4>年龄</h4>
+                        <span th:text="${age}"></span>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8 m-auto">
+                <div class="featured-box">
+                    <div class="featured-icon">
+                        <i class="lni-users"></i>
+                    </div>
+                    <div class="featured-content">
+                        <div class="icon-o"><i class="lni-users"></i></div>
+                        <h4>膳食人群</h4>
+                        <span th:text="${type}"></span>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8 m-auto">
+                <div class="featured-box">
+                    <div class="featured-icon">
+                        <i class="lni-leaf"></i>
+                    </div>
+                    <div class="featured-content">
+                        <div class="icon-o"><i class="lni-leaf"></i></div>
+                        <h4>相关症状</h4>
+                        <div th:each="symptom:${symptoms}" class="d-inline">
+                            <span th:text="${symptom}"></span>
+                            <span>&nbsp;&nbsp;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8 m-auto">
+                <div class="featured-box">
+                    <div class="featured-icon">
+                        <i class="lni-apple"></i>
+                    </div>
+                    <div class="featured-content">
+                        <div class="icon-o"><i class="lni-apple"></i></div>
+                        <h4>缺乏的营养元素</h4>
+                        <div th:each="lack:${lacks}" class="d-inline">
+                            <span th:text="${lack}"></span>
+                            <span>&nbsp;&nbsp;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8 m-auto">
+                <div class="featured-box">
+                    <div class="featured-icon">
+                        <i class="lni-heart"></i>
+                    </div>
+                    <div class="featured-content">
+                        <div class="icon-o"><i class="lni-heart"></i></div>
+                        <h4>我的口味偏好</h4>
+                        <div th:each="preference:${preferences}" class="d-inline">
+                            <span th:text="${preference}"></span>
+                            <span>&nbsp;&nbsp;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8 m-auto">
+                <div class="featured-box">
+                    <div class="featured-icon">
+                        <i class="lni-heart-filled"></i>
+                    </div>
+                    <div class="featured-content">
+                        <div class="icon-o"><i class="lni-heart-filled"></i></div>
+                        <h4>我喜欢的食物</h4>
+                        <div th:each="n:${liked}" class="d-inline">
+                            <span th:text="${n}"></span>
+                            <span>&nbsp;&nbsp;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8 m-auto">
+                <div class="featured-box">
+                    <div class="featured-icon">
+                        <i class="lni-minus"></i>
+                    </div>
+                    <div class="featured-content">
+                        <div class="icon-o"><i class="lni-minus"></i></div>
+                        <h4>我不喜欢的食物</h4>
+                        <div th:each="n:${unliked}" class="d-inline">
+                            <span th:text="${n}"></span>
+                            <span>&nbsp;&nbsp;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div id="loader">
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+</div>
+
+<script th:src="@{js/jquery-min.js}"></script>
+<script th:src="@{js/popper.min.js}"></script>
+<script th:src="@{js/bootstrap.min.js}"></script>
+<script th:src="@{js/classie.js}"></script>
+<script th:src="@{js/jquery.mixitup.js}"></script>
+<script th:src="@{js/nivo-lightbox.js}"></script>
+<script th:src="@{js/owl.carousel.js}"></script>
+<script th:src="@{js/jquery.stellar.min.js}"></script>
+<script th:src="@{js/jquery.nav.js}"></script>
+<script th:src="@{js/scrolling-nav.js}"></script>
+<script th:src="@{js/jquery.easing.min.js}"></script>
+<script th:src="@{js/wow.js}"></script>
+<script th:src="@{js/jquery.vide.js}"></script>
+<script th:src="@{js/jquery.counterup.min.js}"></script>
+<script th:src="@{js/jquery.magnific-popup.min.js}"></script>
+<script th:src="@{js/waypoints.min.js}"></script>
+<script th:src="@{js/form-validator.min.js}"></script>
+<script th:src="@{js/contact-form-script.js}"></script>
+<script th:src="@{js/main.js}"></script>
+
+</body>
+</html>

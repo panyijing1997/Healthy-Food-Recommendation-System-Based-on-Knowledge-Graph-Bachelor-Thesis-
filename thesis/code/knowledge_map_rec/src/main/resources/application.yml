@@ -1,0 +1,22 @@
+spring:
+  mvc:
+    view:
+      prefix: /
+      suffix: .html
+  thymeleaf:
+    cache: false
+  #data1
+  datasource.source1.driver-class-name: com.mysql.cj.jdbc.Driver
+  datasource.source1.jdbc-url: jdbc:mysql://localhost:3306/kmr?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+  datasource.source1.username: root
+  datasource.source1.password: ilovedota
+  #data2
+  datasource.source2.driver-class-name: org.neo4j.jdbc.http.HttpDriver
+  datasource.source2.jdbc-url: jdbc:neo4j:http://localhost:7474
+  datasource.source2.username: neo4j
+  datasource.source2.password: ilovedota
+mybatis:
+  type-aliases-package: pan.kmr.bean
+  mapper-locations: classpath:/mybatis/mapper/source1/*.xml,classpath:/mybatis/mapper/source2/*.xml,
+  configuration:
+    map-underscore-to-camel-case: true

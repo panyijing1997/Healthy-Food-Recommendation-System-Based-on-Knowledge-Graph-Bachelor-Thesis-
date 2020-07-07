@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pan.kmr.mapper.source2.FoodMapper">
+    <resultMap id="Map1" type="pan.kmr.bean.Food">
+
+    </resultMap>
+    <select id="getAll" resultMap="Map1">
+        match (f:Food) return f.name as foodName
+    </select>
+
+    <select id="getAllfnames" resultType="java.lang.String">
+        match (f:Food) return f.name
+    </select>
+
+    <!--根据食物名称查食物相关信息-->
+    <select id="negativeSymptomByFname" resultType="java.lang.String" >
+        MATCH (a:Food)-[:NEGATIVE]->(b:Symptom) where a.name=#{fname} RETURN b.name
+    </select>
+
+    <select id="positiveSymptomByFname" resultType="java.lang.String" >
+        MATCH (a:Food)-[:POSITIVE]->(b:Symptom) where a.name=#{fname} RETURN b.name
+    </select>
+
+    <select id="negativePeopleByFname" resultType="java.lang.String" >
+        MATCH (a:Food)-[:NEGATIVE]->(b:PeopleType) where a.name=#{fname} RETURN b.name
+    </select>
+
+    <select id="positivePeopleByFname" resultType="java.lang.String" >
+        MATCH (a:Food)-[:POSITIVE]->(b:PeopleType) where a.name=#{fname} RETURN b.name
+    </select>
+
+    <select id="muchNutrientByFname" resultType="java.lang.String" >
+        MATCH (a:Food)-[:MUCH]->(b:Nutrient) where a.name=#{fname} RETURN b.name
+    </select>
+    <!--根据食物名称查食物相关信息end-->
+
+    <!--根据食物名称查询特点-->
+    <select id="featureByFname" resultType="java.lang.String" >
+        MATCH (a:Food)-[:FIT]->(b:FoodFeature) where a.name=#{fname} RETURN b.name
+    </select>
+
+
+    <!--根据症状查询有利食物-->
+    <select id="positiveFoodBySymptom" resultType="java.lang.String" >
+        MATCH (a:Food)-[:POSITIVE]->(b:Symptom) where b.name=#{symptom} RETURN a.name
+    </select>
+    <!--根据症状查询有利食物end-->
+
+    <!--根据营养元素查询食物-->
+    <select id="positiveFoodByNutrient" resultType="java.lang.String" >
+        MATCH (a:Food)-[:MUCH]->(b:Nutrient) where b.name=#{nutrient} RETURN a.name
+    </select>
+    <!--根据营养元素查询食物end-->
+
+    <!--根据人群查询食物-->
+    <select id="positiveFoodByPeopleType" resultType="java.lang.String" >
+        MATCH (a:Food)-[:POSITIVE]->(b:PeopleType) where b.name=#{peopleType} RETURN a.name
+    </select>
+    <!--根据人群查询食物end-->
+
+    <!--根据属性查询不利食物-->
+    <select id="getNegativeFoods" resultType="java.lang.String">
+        MATCH (f:Food)-[r:NEGATIVE]->(p)
+        where p.name=#{property}
+        RETURN f.name
+    </select>
+</mapper>
