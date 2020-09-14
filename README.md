@@ -4,4 +4,4 @@
 前后端未分离，前端主要用的是bootstrap。
 后端springboot2。
 数据库neo4j和mysql，持久层框架mybatis。
-配置好两个数据库，用IDEA打开项目然后运行，在localhost:8080即可访问。
+安装好环境，配置好两个数据库，用IDEA打开项目然后运行，在localhost:8080即可访问。
