@@ -9,5 +9,5 @@
 Healthy foods recommendation system based on knowledge graph (knowledge map).  
 Using a small knowledge graph (hundres of nodes) on Neo4j  
 Back-end : Springboot2  
-Database : MySQL, Neo4j, Mybatis  
+Database& related framework : MySQL, Neo4j, Mybatis  
 Front-end: mainly on Bootstrap  
