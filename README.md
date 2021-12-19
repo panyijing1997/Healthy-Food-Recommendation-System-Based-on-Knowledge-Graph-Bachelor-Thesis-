@@ -6,7 +6,7 @@
 数据库neo4j和mysql，持久层框架mybatis。  
 安装好环境，配置好两个数据库，用IDEA打开项目然后运行，在localhost:8080即可访问。  
 
-Healthy foods recommendation system based on knowledge graph (knowledge map).  
+Healthy foods recommendation system based on knowledge graph .  
 Using a small knowledge graph (hundres of nodes) on Neo4j  
 Back-end : Springboot2  
 Database& related framework : MySQL, Neo4j, Mybatis  
