@@ -12,7 +12,7 @@ Back-end : Springboot2
 Database& related framework : MySQL, Neo4j, Mybatis  
 Front-end: mainly on Bootstrap  
 
-Some screenshots:
+## Some screenshots:
 ![](./screenshots/1.png)
 ![](./screenshots/2.png)
 ![](./screenshots/3.png)
